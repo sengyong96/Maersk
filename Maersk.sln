@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maersk", "Maersk\Maersk.csproj", "{459746C4-56E3-4128-B40D-55140B7F02D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testing", "C:\Users\User's PC\Documents\Visual Studio 2015\Projects\testing\testing\testing.csproj", "{3CDD66FD-1F63-4294-803F-D9C4C017BFDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{459746C4-56E3-4128-B40D-55140B7F02D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{459746C4-56E3-4128-B40D-55140B7F02D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{459746C4-56E3-4128-B40D-55140B7F02D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDD66FD-1F63-4294-803F-D9C4C017BFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDD66FD-1F63-4294-803F-D9C4C017BFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDD66FD-1F63-4294-803F-D9C4C017BFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDD66FD-1F63-4294-803F-D9C4C017BFDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

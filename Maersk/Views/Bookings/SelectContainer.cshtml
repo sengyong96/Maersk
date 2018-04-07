@@ -1,0 +1,140 @@
+﻿@model Maersk.ViewModels.ScheduleShipCustomerViewModel
+
+@{
+    ViewBag.Title = "SelectContainer";
+}
+
+<h2>Container</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Schedule ID
+        </th>
+        <th>
+            Schedule Origin
+        </th>
+        <th>
+            Schedule Destination
+        </th>
+        <th>
+            Schedule Departure Time
+        </th>
+        <th>
+            Schedule Arrival Time
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Model.Schedule.ScheduleID
+        </td>
+        <td>
+            @Model.Schedule.Origin
+        </td>
+        <td>
+            @Model.Schedule.Destination
+        </td>
+        <td>
+            @Model.Schedule.DepartureDateTime
+        </td>
+        <td>
+            @Model.Schedule.ArrivalDateTime
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Ship ID
+        </th>
+        <th>
+            Ship Name
+        </th>
+        <td>
+            Ship Container Space
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Model.Ship.ShipID
+        </td>
+        <td>
+            @Model.Ship.ShipName
+        </td>
+        <td>
+            @Model.Ship.ShipContainerSpace
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Customer ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Contact No
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Model.Customer.CustomerID
+        </td>
+        <td>
+            @Model.Customer.Name
+        </td>
+        <td>
+            @Model.Customer.Email
+        </td>
+        <td>
+            @Model.Customer.ContactNo
+        </td>
+    </tr>
+</table>
+
+
+@using (Html.BeginForm("CreateBooking", "Bookings", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Container</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Container.ContainerType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Container.ContainerType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Container.ContainerType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Container.ContainerWeight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Container.ContainerWeight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Container.ContainerWeight, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @Html.HiddenFor(m => m.Schedule.ScheduleID)
+        @Html.HiddenFor(m => m.Customer.CustomerID)
+        @Html.HiddenFor(m => m.Container.ContainerID)
+        @Html.HiddenFor(m => m.Ship.ShipID)
+        @Html.HiddenFor(m => m.Booking.BookingID)
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create Booking" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}

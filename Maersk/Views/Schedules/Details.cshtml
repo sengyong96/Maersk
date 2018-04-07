@@ -1,0 +1,51 @@
+﻿@model Maersk.Models.Schedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScheduleID }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-info" })
+    @Html.ActionLink("Add Schedule", "new", "Schedules", "", new { @class = "btn btn-success" })
+</p>

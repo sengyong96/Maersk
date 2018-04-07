@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "SelectSchedule";
+}
+
+<h2>Select Schedule</h2>
+
+@*@Html.ActionLink("Create New Schedule", "New", "", new { @class = "btn btn-success" })*@
+
+<table class="table">
+    <tr>
+        <th>
+            Schedule ID
+        </th>
+        <th>
+            Origin
+        </th>
+        <th>
+            Destination
+        </th>
+        <th>
+            DepartureDateTime
+        </th>
+        <th>
+            ArrivalDateTime
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.ScheduleID
+            </td>
+            <td>
+                @item.Origin
+            </td>
+            <td>
+                @item.Destination
+            </td>
+            <td>
+                @item.DepartureDateTime
+            </td>
+            <td>
+                @item.ArrivalDateTime
+            </td>
+            <td>
+                @Html.ActionLink("Select", "SelectShip", "Bookings", new {Scheduleid = item.ScheduleID}, new {@class = "btn btn-success btn-xs"})
+            </td>
+        </tr>
+    }
+
+</table>

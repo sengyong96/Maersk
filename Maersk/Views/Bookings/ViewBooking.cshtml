@@ -1,0 +1,124 @@
+﻿@*@model Maersk.ViewModels.ScheduleShipCustomerViewModel*@
+
+@{
+    ViewBag.Title = "ViewBooking";
+}
+
+<h2>ViewBooking</h2>
+
+<p>
+    @Html.ActionLink("Create New Booking", "SelectSchedule", "Bookings", new {@class ="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Booking ID
+        </th>
+        <th>
+            Booking Agent
+        </th>
+        <th>
+            Customer ID
+        </th>
+        <th>
+            Customer Name
+        </th>
+        <th>
+            Customer Email
+        </th>
+        <th>
+            Customer Contact No
+        </th>
+        <th>
+            Ship ID
+        </th>
+        <th>
+            Ship Name
+        </th>
+        <th>
+            Ship Container Space
+        </th>
+        <th>
+            Container ID
+        </th>
+        <th>
+            Container Type
+        </th>
+        <th>
+            Container Weight
+        </th>
+        <th>
+            Schedule ID
+        </th>
+        <th>
+            Schedule Origin
+        </th>
+        <th>
+            Schedule Destination
+        </th>
+        <th>
+            Schedule Departure Date Time
+        </th>
+        <th>
+            Schedule Arrival Date Time
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.BookingID
+            </td>
+            <td>
+                @item.Booking.BookingAgent
+            </td>
+            <td>
+                @item.Booking.CustomerID
+            </td>
+            <td>
+                @item.Booking.Customer.Name
+            </td>
+            <td>
+                @item.Booking.Customer.Email
+            </td>
+            <td>
+                @item.Booking.Customer.ContactNo
+            </td>
+            <td>
+                @item.Booking.ShipID
+            </td>
+            <td>
+                @item.Booking.Ship.ShipName
+            </td>
+            <td>
+                @item.Booking.Ship.ShipContainerSpace
+            </td>
+            <td>
+                @item.ContainerID
+            </td>
+            <td>
+                @item.ContainerType
+            </td>
+            <td>
+                @item.ContainerWeight
+            </td>
+            <td>
+                @item.Booking.ScheduleID
+            </td>
+            <td>
+                @item.Booking.Schedule.Origin
+            </td>
+            <td>
+                @item.Booking.Schedule.Destination
+            </td>
+            <td>
+                @item.Booking.Schedule.DepartureDateTime
+            </td>
+            <td>
+                @item.Booking.Schedule.ArrivalDateTime
+            </td>
+        </tr>
+    }
+
+</table>
