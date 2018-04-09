@@ -137,7 +137,7 @@ namespace Maersk.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -162,7 +162,8 @@ namespace Maersk.Controllers
                     //await roleManager.CreateAsync(new IdentityRole("Admin"));
                     //await UserManager.AddToRoleAsync(user.Id, "Admin");
 
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //prevent agent auto login after admin register --> 
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

@@ -19,17 +19,37 @@
                 </button>
                 @Html.ActionLink("Maersk", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Schedule Testing", "Index", "Schedules")</li>
-                    <li>@Html.ActionLink("Ship Testing", "Index", "Ships")</li>
-                    <li>@Html.ActionLink("Customer Testing", "Index", "Customers")</li>
-                    <li>@Html.ActionLink("Container Testing", "Index", "Containers")</li>
-                    <li>@Html.ActionLink("Booking Testing", "SelectSchedule", "Bookings")</li>
-                    <li>@Html.ActionLink("View Booking Testing", "ViewBooking", "Bookings")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Schedule", "Index", "Schedules")</li>
+                            <li>@Html.ActionLink("Ship", "Index", "Ships")</li>
+                            <li>@Html.ActionLink("Customer", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("Container", "Index", "Containers")</li>
+                            <li>@Html.ActionLink("Booking", "SelectSchedule", "Bookings")</li>
+                            <li>@Html.ActionLink("View Booking", "ViewBooking", "Bookings")</li>
+
+                            <li>@Html.ActionLink("Register Agent", "Register", "Account")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Customer", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("Booking", "SelectSchedule", "Bookings")</li>
+                        }
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+
+
+
         </div>
     </div>
     <div class="container body-content">
