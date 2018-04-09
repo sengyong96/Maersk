@@ -6,10 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Containers")) 
+@using (Html.BeginForm("Create", "Containers"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>New Container</h4>
         <hr />
@@ -41,3 +41,8 @@
 <div>
     @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-info" })
 </div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

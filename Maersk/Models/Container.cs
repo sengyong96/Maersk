@@ -16,7 +16,7 @@ namespace Maersk.Models
         public string ContainerType { get; set; }
 
         [Required]
-        [Display(Name = "Weight of the Container")]
+        [Display(Name = "Space of the Container")]
         public double ContainerWeight { get; set; }
 
         public Booking Booking { get; set; }

@@ -92,6 +92,32 @@ namespace Maersk.Controllers
 
         public ActionResult CreateBooking(ScheduleShipCustomerViewModel sscvm)
         {
+            var tempShipID = sscvm.Ship.ShipID;
+            var newContainerSpace = sscvm.Container.ContainerWeight;
+
+            var tempContainerSpace = _context.Ships.Single(s => s.ShipID == tempShipID).ShipContainerSpace;
+
+            if (tempContainerSpace - newContainerSpace < 0)
+            {
+                ViewBag.Error = "The container space is exceeded the ship's container space.";
+
+                var oldSchedule = _context.Schedules.SingleOrDefault(s => s.ScheduleID == sscvm.Schedule.ScheduleID);
+                var oldShip = _context.Ships.SingleOrDefault(s => s.ShipID == sscvm.Ship.ShipID);
+                var oldCustomer = _context.Customers.SingleOrDefault(c => c.CustomerID == sscvm.Customer.CustomerID);
+
+                var viewModel = new ScheduleShipCustomerViewModel
+                {
+                    Schedule = oldSchedule,
+                    Ship = oldShip,
+                    Customer = oldCustomer
+                };
+
+                return View("SelectContainer", viewModel);
+            }
+
+            var ship = _context.Ships.Single(s => s.ShipID == sscvm.Ship.ShipID);
+            ship.ShipContainerSpace = Convert.ToInt32(tempContainerSpace - newContainerSpace);
+
             var booking = new Booking()
             {
                 ScheduleID = sscvm.Schedule.ScheduleID,
@@ -113,6 +139,8 @@ namespace Maersk.Controllers
 
                 BookingID = sscvm.Booking.BookingID
             };
+
+
 
             _context.Bookings.Add(booking);
             _context.Containers.Add(container);

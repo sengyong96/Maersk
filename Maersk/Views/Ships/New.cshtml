@@ -6,10 +6,10 @@
 
 <h2>New</h2>
 
-@using (Html.BeginForm("Create", "Ships")) 
+@using (Html.BeginForm("Create", "Ships"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Ship</h4>
         <hr />
@@ -30,6 +30,8 @@
             </div>
         </div>
 
+        @*@Html.HiddenFor(m => m.ShipID)*@
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -41,3 +43,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-info" })
 </div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
