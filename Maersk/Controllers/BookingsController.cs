@@ -123,7 +123,7 @@ namespace Maersk.Controllers
                 ScheduleID = sscvm.Schedule.ScheduleID,
                 ShipID = sscvm.Ship.ShipID,
                 CustomerID = sscvm.Customer.CustomerID,
-                BookingAgent = "Not Ken ViVi"
+                BookingAgent = User.Identity.Name
             };
 
             //_context.Bookings.Add(booking);
